@@ -7,7 +7,7 @@ function AddSum() {
       if(window.ethereum){
         window.ethereum.enable()
       }
-        const address = "0x571a55864e3A84F4CC271C46b6E6Ce3868B98f85"
+        const address = "0xb1F4218769EaA3E5A6c55180C95723499B7B4E66"
         const abi = [
             {
               "inputs": [
@@ -44,7 +44,7 @@ function AddSum() {
           const provider = new ethers.providers.Web3Provider(window.ethereum)
           const signer = provider.getSigner()
           const contract = new ethers.Contract(address, abi, signer)
-          const add = await contract.add(2,3);
+          const add = await contract.add(10,3);
           await add.wait()
           const showSum = await contract.showSum()
           setSum(showSum.toString())
